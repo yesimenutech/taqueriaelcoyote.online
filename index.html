@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Taqueria El Coyote - Authentic Mexican Food & Delivery en Pahrump, NV.">
+    <title>Taqueria El Coyote | Mexican Food</title>
+    
+    <!-- SEO & Open Graph -->
+    <meta property="og:title" content="Taqueria El Coyote | Mexican Food">
+    <meta property="og:description" content="Auténtica comida mexicana en Pahrump.">
+    <meta property="og:image" content="https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385632/Logo_Vectorizado_s0vche.png">
+    <meta property="og:url" content="https://menutech.xyz">
+    <meta property="og:type" content="restaurant.menu">
+    <link rel="canonical" href="https://menutech.xyz">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Taqueria El Coyote",
+      "image": "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385720/hhj_fwa9ap.jpg",
+      "telephone": "775-253-0148",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3971 E Kellogg Rd",
+        "addressLocality": "Pahrump",
+        "addressRegion": "NV",
+        "postalCode": "89061",
+        "addressCountry": "US"
+      },
+      "servesCuisine": "Mexican",
+      "priceRange": "$$"
+    }
+    </script>
+
+    <link rel="icon" id="favicon" type="image/png" href="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto:eco,dpr_auto,w_250/v1791385632/Logo_Vectorizado_s0vche.png">
+    
+    <!-- Google Fonts: DM Serif Display & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta Estricta Solicitada */
+            --rosado: #F2949C;
+            --azul: #2D7A9D;
+            --cafe: #5C4033;
+            --negro: #1A1A1A;
+            --crema: #F4F0EA;
+            --verde: #3A5F43;
+            --rojo: #C23B22;
+            
+            /* Tipografía */
+            --font-title: 'DM Serif Display', serif;
+            --font-body: 'Space Grotesk', sans-serif;
+            
+            /* Estilo Gráfico (Offset Shadows, Bordes Duros) */
+            --border-thick: 3px solid var(--negro);
+            --shadow-solid: 6px 6px 0px var(--negro);
+            --shadow-solid-hover: 10px 10px 0px var(--negro);
+            --transition: all 0.25s ease-in-out;
+        }
+
+        /* Texturas SVG Generadas */
+        .textura-madera {
+            background-color: var(--cafe);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q 15 10 30 30 T 60 30' fill='none' stroke='rgba(0,0,0,0.15)' stroke-width='2'/%3E%3Cpath d='M0 45 Q 15 25 30 45 T 60 45' fill='none' stroke='rgba(0,0,0,0.1)' stroke-width='1.5'/%3E%3Cpath d='M0 15 Q 15 -5 30 15 T 60 15' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='2'/%3E%3C/svg%3E");
+            color: var(--crema);
+        }
+
+        .textura-cactus {
+            background-color: var(--verde);
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 4 L12 8 M12 16 L12 20 M4 12 L8 12 M16 12 L20 12 M7 7 L10 10 M17 17 L14 14 M17 7 L14 10 M7 17 L10 14' stroke='rgba(255,255,255,0.08)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+            color: var(--crema);
+        }
+
+        /* Resets */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--crema);
+            color: var(--negro);
+            line-height: 1.6;
+            overflow-x: hidden;
+            border: 12px solid var(--cafe);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: var(--border-thick);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            color: var(--crema);
+            text-shadow: 2px 2px 0px var(--negro);
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            border: 2px solid var(--crema);
+            background: var(--rojo);
+            box-shadow: 4px 4px 0px var(--negro);
+            transform: translateY(-2px);
+        }
+
+        .lang-switcher {
+            display: flex;
+            border: 2px solid var(--crema);
+            background: var(--negro);
+        }
+
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--crema);
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background: var(--rosado);
+            color: var(--negro);
+        }
+
+        /* Botón Toggler Mobile */
+        .navbar-toggler {
+            display: none;
+            background: var(--crema);
+            border: var(--border-thick);
+            padding: 0.5rem;
+            cursor: pointer;
+            box-shadow: 3px 3px 0px var(--negro);
+        }
+        
+        .toggler-icon {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--negro);
+            margin: 4px 0;
+        }
+
+        /* Hero Banner Integrado */
+        .hero-banner {
+            width: 100%;
+            min-height: 75vh;
+            background-image: url('https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto,w_1600/v1791385720/hhj_fwa9ap.jpg');
+            background-size: cover;
+            background-position: center;
+            border-bottom: var(--border-thick);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 26, 26, 0.45);
+        }
+
+        .hero-actions-container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 4rem 2rem;
+        }
+
+        .brand-logo-wrapper {
+            background: var(--crema);
+            border: var(--border-thick);
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: var(--shadow-solid);
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Overrides visuales para componentes de Menutech */
+        menutech-orders, menutech-reservations {
+            display: inline-block;
+            border: var(--border-thick);
+            box-shadow: var(--shadow-solid);
+            transition: var(--transition);
+            background: var(--negro);
+        }
+        
+        menutech-orders:hover, menutech-reservations:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-solid-hover);
+        }
+
+        /* Secciones Generales */
+        .section-padding { padding: 6rem 0; }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px var(--cafe);
+            color: var(--crema);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            display: inline-block;
+            background: var(--rojo);
+            color: var(--crema);
+            padding: 0.2rem 0.8rem;
+            font-weight: 700;
+            border: 2px solid var(--negro);
+            box-shadow: 3px 3px 0px var(--negro);
+            transform: rotate(-2deg);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            background: var(--crema);
+            color: var(--negro);
+            padding: 3rem;
+            border: var(--border-thick);
+            box-shadow: var(--shadow-solid);
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        /* Elemento decorativo */
+        .about-text::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 30px;
+            height: 30px;
+            background: var(--rosado);
+            border: 2px solid var(--negro);
+            border-radius: 50%;
+        }
+
+        .about-text p { margin-bottom: 1.5rem; }
+
+        .about-images-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: var(--border-thick);
+            box-shadow: var(--shadow-solid);
+            filter: grayscale(20%) contrast(120%);
+        }
+
+        .img-offset { transform: translateY(3rem); }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--crema);
+            border-top: var(--border-thick);
+            border-bottom: var(--border-thick);
+        }
+
+        .gallery-title { color: var(--azul); text-shadow: 3px 3px 0px var(--negro); }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border: var(--border-thick);
+            background: var(--rosado);
+            box-shadow: var(--shadow-solid);
+            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px var(--negro);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .info-card {
+            background: var(--crema);
+            color: var(--negro);
+            border: var(--border-thick);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 8px 8px 0px var(--negro);
+            position: relative;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 10px;
+            background: var(--azul);
+            border-bottom: var(--border-thick);
+        }
+
+        .info-card:nth-child(2)::before { background: var(--rojo); }
+        .info-card:nth-child(3)::before { background: var(--rosado); }
+
+        .info-card h4 {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--negro);
+            color: var(--crema);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--cafe);
+            padding-bottom: 3rem;
+        }
+
+        .footer-title {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--rosado);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            background: var(--azul);
+            color: var(--crema);
+            border: 2px solid var(--crema);
+            width: 45px; height: 45px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 3px 3px 0px var(--crema);
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--rojo);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px var(--crema);
+        }
+
+        .copyright {
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--crema);
+        }
+
+        .copyright a { color: var(--verde); text-decoration: underline; text-decoration-thickness: 2px; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggler { display: block; }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: var(--cafe);
+                border-bottom: var(--border-thick);
+                padding: 1rem 0;
+            }
+            .nav-menu.active { display: flex; }
+            .img-offset { transform: none; }
+            .about-images-container { grid-template-columns: 1fr; }
+            .hero-logo { width: 150px; height: 150px; }
+        }
+    </style>
+
+    <script>
+        window.MENU_TECH_STATE = {
+            "lang": "en",
+            "showReservations": false,
+            "showAbout": true,
+            "showPromo": false,
+            "showGallery": true,
+            "showCatering": false,
+            "showInfo": true,
+            "showDelivery": false,
+            "cuid": "000000",
+            "ruid": "000000",
+            "title": "Taqueria El Coyote",
+            "logoImg": "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385632/Logo_Vectorizado_s0vche.png",
+            "heroAddress": "3971 E Kellogg Rd, Pahrump, NV 89061",
+            "heroImg": "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385720/hhj_fwa9ap.jpg",
+            "aboutImg1": "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385746/IMG-20260929-WA0170_nd9fx0.jpg",
+            "aboutImg2": "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385749/IMG-20260929-WA0166_ak7ks2.jpg",
+            "gallery": [
+                "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385845/IMG-20260929-WA0157_tsapua.jpg",
+                "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385846/IMG-20260929-WA0155_rcabog.jpg",
+                "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385847/IMG-20260929-WA0151_rywwyi.jpg",
+                "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385847/IMG-20260929-WA0150_qwz4kb.jpg",
+                "https://res.cloudinary.com/dzklt0a5u/image/upload/v1791385848/IMG-20260929-WA0163_vadaxx.jpg"
+            ],
+            "contact": {
+                "phone": "775-253-0148",
+                "address": "3971 E Kellogg Rd, Pahrump, NV 89061",
+                "hours": "Friday to Saturday: 9:30 AM – 8:00 PM\nSunday: 9:30 AM – 5:00 PM"
+            },
+            "socials": [
+                {"platform": "instagram", "url": "https://www.instagram.com/taqueria.elcoyote/"},
+                {"platform": "facebook", "url": "https://www.facebook.com/TaqueriaElCoyotePahrump/?_rdc=1&_rdr#"}
+            ],
+            "paragraphs": {
+                "about": "Desde ese día, abrimos nuestras puertas con la ilusión de ofrecerte mucho más que una comida: queremos crear experiencias, reunir familias y amigos, y convertir cada visita en un recuerdo especial. ¡Un sabor irresistible!\n\nEl secreto de nuestro éxito es simple: crear platillos excepcionales utilizando ingredientes frescos y de alta calidad que capturan la verdadera esencia de la cocina mexicana en cada bocado.\n\nNuestra misión es ayudarte a saborear los momentos que realmente importan. Disfruta de buena comida, siéntete como en casa y vive la experiencia El Coyote."
+            },
+            "titles": {
+                "about-title": "We are Taqueria El Coyote",
+                "about-subtitle": "About Us",
+                "gallery-title": "Delicious Mexican Food",
+                "gallery-subtitle": "Love At First Bite",
+                "info-title": "Information",
+                "info-subtitle": "Visit Us"
+            },
+            "info": {
+                "hours": "Friday to Saturday: 9:30 AM – 8:00 PM\nSunday: 9:30 AM – 5:00 PM",
+                "phone": "775-253-0148",
+                "address": "3971 E Kellogg Rd, Pahrump, NV 89061"
+            }
+        };
+    </script>
+</head>
+<body>
+
+    <!-- Navbar con Textura Madera -->
+    <nav class="navbar textura-madera">
+        <div class="container nav-container">
+            <a href="#" class="navbar-brand" id="nav-brand">Taqueria El Coyote</a>
+            
+            <button class="navbar-toggler" id="navbar-toggler" aria-label="Menu">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a></li>
+                <li><a href="#about-section" class="nav-link" data-es="Nosotros" data-en="About Us">Nosotros</a></li>
+                <li><a href="#gallery-section" class="nav-link" data-es="Galería" data-en="Gallery">Galería</a></li>
+                <li><a href="#info-section" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                <li>
+                    <div class="lang-switcher">
+                        <span id="lang-es" class="lang-btn active" onclick="applyLanguage('es')">ES</span>
+                        <span id="lang-en" class="lang-btn" onclick="applyLanguage('en')">EN</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Integrado -->
+    <header class="hero-banner" id="hero-section">
+        <div class="container hero-actions-container">
+            <div class="brand-logo-wrapper">
+                <img src="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto:eco,dpr_auto,w_300/v1791385632/Logo_Vectorizado_s0vche.png" id="hero-logo" alt="Logo" class="hero-logo">
+            </div>
+            
+            <div class="cta-group">
+                <!-- 1. Script Motor Menutech -->
+                <script src="https://www.fbgcdn.com/embedder/js/ewm2.js"></script>
+                <!-- 2. Librería Menutech -->
+                <script src="https://menutech.xyz/menutechUI.min.js"></script>
+
+                <!-- 3. Botones Menutech Customizados -->
+                <menutech-orders id="hero-orders" cuid="000000" ruid="000000" background="#2D7A9D" color="#F4F0EA" data-glf-cuid="000000" data-glf-ruid="000000"></menutech-orders>
+
+                <div id="hero-reservations-wrapper" style="display: none;">
+                    <menutech-reservations id="hero-reservations" cuid="000000" ruid="000000" background="#C23B22" color="#F4F0EA" data-glf-cuid="000000" data-glf-ruid="000000" data-glf-reservation="true"></menutech-reservations>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section con Textura Cactus -->
+    <section class="section-padding textura-cactus" id="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <div class="section-header">
+                        <span class="section-subtitle" id="about-subtitle" data-es="Nuestra Historia" data-en="About Us">Nuestra Historia</span>
+                        <h2 class="section-title" id="about-title" data-es="Somos El Coyote" data-en="We are El Coyote">Somos El Coyote</h2>
+                    </div>
+                    <div class="about-text">
+                        <p id="about-p1" data-es="Desde ese día, abrimos nuestras puertas con la ilusión de ofrecerte mucho más que una comida: queremos crear experiencias, reunir familias y amigos, y convertir cada visita en un recuerdo especial." data-en="Since that day, we opened our doors with the dream of offering you much more than a meal: we want to create experiences, bring families and friends together, and make every visit a special memory."></p>
+                        <p id="about-p2" data-es="El secreto de nuestro éxito es simple: crear platillos excepcionales utilizando ingredientes frescos y de alta calidad que capturan la verdadera esencia de la cocina mexicana en cada bocado." data-en="The secret to our success is simple: creating exceptional dishes using fresh, high-quality ingredients that capture the true essence of Mexican cuisine in every bite."></p>
+                        <p id="about-p3" style="margin-bottom:0;" data-es="Nuestra misión es ayudarte a saborear los momentos que realmente importan. Disfruta de buena comida, siéntete como en casa y vive la experiencia El Coyote." data-en="Our mission is to help you savor the moments that truly matter. Enjoy great food, feel at home, and live the El Coyote experience."></p>
+                    </div>
+                </div>
+                <div class="about-images-container">
+                    <img id="about-img-1" src="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto,w_600/v1791385746/IMG-20260929-WA0170_nd9fx0.jpg" alt="Mexican Food" class="about-image">
+                    <img id="about-img-2" src="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto,w_600/v1791385749/IMG-20260929-WA0166_ak7ks2.jpg" alt="Mexican Food" class="about-image img-offset">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section-padding gallery-section" id="gallery-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <span class="section-subtitle" id="gallery-subtitle" data-es="Amor al Primer Bocado" data-en="Love At First Bite">Amor al Primer Bocado</span>
+                <h2 class="section-title gallery-title" id="gallery-title" data-es="Comida Mexicana" data-en="Mexican Food">Comida Mexicana</h2>
+            </div>
+            <div id="gallery-container" class="gallery-grid">
+                <!-- Inyectado vía JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section con Textura Madera -->
+    <section class="section-padding textura-madera" id="info-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <span class="section-subtitle" id="info-subtitle" data-es="Visítanos" data-en="Visit Us">Visítanos</span>
+                <h2 class="section-title" id="info-title" data-es="Información" data-en="Information">Información</h2>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4 data-es="Dirección" data-en="Address">Dirección</h4>
+                    <p id="info-address" style="font-weight: 700; font-size: 1.1rem;">3971 E Kellogg Rd, Pahrump, NV 89061</p>
+                </div>
+                <div class="info-card">
+                    <h4 data-es="Horarios" data-en="Opening Hours">Horarios</h4>
+                    <p id="info-hours" style="font-weight: 700; font-size: 1.1rem; white-space: pre-line;">Friday to Saturday: 9:30 AM – 8:00 PM<br>Sunday: 9:30 AM – 5:00 PM</p>
+                </div>
+                <div class="info-card">
+                    <h4 data-es="Teléfono" data-en="Phone">Teléfono</h4>
+                    <p id="info-phone" style="font-weight: 700; font-size: 1.2rem; color: var(--rojo);">775-253-0148</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4 class="footer-title" data-es="Contáctanos" data-en="Contact Us">Contáctanos</h4>
+                    <p class="footer-text" id="footer-address">3971 E Kellogg Rd, Pahrump, NV 89061</p>
+                    <p class="footer-text" id="footer-phone" style="color: var(--rosado); font-weight: bold;">775-253-0148</p>
+                    
+                    <div id="social-icons" class="social-icons">
+                        <!-- Iconos inyectados por JS respetando exclusión de TikTok -->
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title" data-es="Horarios" data-en="Opening Hours">Horarios</h4>
+                    <p class="footer-text" id="footer-hours" style="white-space: pre-line;">Friday to Saturday: 9:30 AM – 8:00 PM<br>Sunday: 9:30 AM – 5:00 PM</p>
+                </div>
+            </div>
+            
+            <!-- Script Automático Año Dinámico Requerido -->
+            <div class="copyright">
+                © 2015-<span id="copyright-year"></span> Powered by <a href="https://menutech.xyz" target="_blank" rel="noopener">Menutech</a>. All Rights Reserved.
+            </div>
+            <script>
+                document.getElementById('copyright-year').textContent = new Date().getFullYear();
+            </script>
+        </div>
+    </footer>
+
+    <!-- Lógica JavaScript Principal -->
+    <script>
+        // Iconos SVG para redes permitidas
+        const SOCIAL_ICONS = {
+            instagram: `<svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>`,
+            facebook: `<svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>`
+        };
+
+        const optimizeCloudinaryUrl = (url, options = {}) => {
+            if (!url || !url.includes('res.cloudinary.com')) return url;
+            const [baseUrl, hash] = url.split('#');
+            if (!baseUrl.includes('/upload/')) return url;
+            const parts = baseUrl.split('/upload/');
+
+            let pathSegments = parts[1].split('/');
+            if (pathSegments.length > 1) {
+                const firstSegment = pathSegments[0];
+                const isVersion = /^v\d+$/.test(firstSegment);
+                const isTransformation = !isVersion && (firstSegment.includes('_') || firstSegment.includes(','));
+                if (isTransformation) pathSegments.shift();
+            }
+            
+            let transforms = ['f_auto', 'q_auto:eco', 'dpr_auto'];
+            if (options.width) transforms.push(`w_${options.width}`);
+            if (options.height) transforms.push(`h_${options.height}`);
+            if (options.crop) transforms.push(`c_${options.crop}`);
+            
+            return `${parts[0]}/upload/${transforms.join(',')}/${pathSegments.join('/')}${hash ? '#' + hash : ''}`;
+        };
+
+        let currentLang = 'es';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-es]').forEach(el => {
+                if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.textContent = el.getAttribute(`data-${lang}`);
+                }
+            });
+
+            const esBtn = document.getElementById('lang-es');
+            const enBtn = document.getElementById('lang-en');
+            if (esBtn && enBtn) {
+                esBtn.classList.toggle('active', lang === 'es');
+                enBtn.classList.toggle('active', lang === 'en');
+            }
+        }
+
+        function updateUI(data) {
+            if (!data) return;
+
+            if (data.title) {
+                const navBrand = document.getElementById('nav-brand');
+                if (navBrand) navBrand.textContent = data.title;
+                document.title = `${data.title} | Mexican Food`;
+            }
+
+            if (data.logoImg) {
+                const logo = document.getElementById('hero-logo');
+                const favicon = document.getElementById('favicon');
+                const optimized = optimizeCloudinaryUrl(data.logoImg, { width: 300 });
+                if (logo) logo.src = optimized;
+                if (favicon) favicon.href = optimized;
+            }
+
+            const sections = {
+                'about-section': data.showAbout !== false,
+                'gallery-section': data.showGallery !== false,
+                'info-section': data.showInfo !== false
+            };
+            Object.keys(sections).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = sections[id] ? '' : 'none';
+            });
+
+            const cuid = data.cuid || '';
+            const ruid = data.ruid || '';
+
+            const ordersBtn = document.querySelector('menutech-orders');
+            if (ordersBtn) {
+                ordersBtn.setAttribute('cuid', cuid);
+                ordersBtn.setAttribute('ruid', ruid);
+                ordersBtn.setAttribute('data-glf-cuid', cuid);
+                ordersBtn.setAttribute('data-glf-ruid', ruid);
+            }
+
+            const resWrapper = document.getElementById('hero-reservations-wrapper');
+            if (resWrapper) {
+                resWrapper.style.setProperty('display', (data.showReservations !== false) ? 'inline-block' : 'none', 'important');
+                const resBtn = resWrapper.querySelector('menutech-reservations');
+                if (resBtn) {
+                    resBtn.setAttribute('cuid', cuid);
+                    resBtn.setAttribute('ruid', ruid);
+                    resBtn.setAttribute('data-glf-cuid', cuid);
+                    resBtn.setAttribute('data-glf-ruid', ruid);
+                }
+            }
+
+            setTimeout(() => { if(window.glfBindButtons) window.glfBindButtons(); }, 1000);
+
+            if (data.heroImg) {
+                const hero = document.getElementById('hero-section');
+                if (hero) hero.style.backgroundImage = `url('${optimizeCloudinaryUrl(data.heroImg, { width: 1600 })}')`;
+            }
+
+            if (data.aboutImg1) document.getElementById('about-img-1').src = optimizeCloudinaryUrl(data.aboutImg1, { width: 600 });
+            if (data.aboutImg2) document.getElementById('about-img-2').src = optimizeCloudinaryUrl(data.aboutImg2, { width: 600 });
+
+            if (data.info) {
+                const updateHTML = (id, html) => { if(document.getElementById(id)) document.getElementById(id).innerHTML = html; };
+                const updateText = (id, text) => { if(document.getElementById(id)) document.getElementById(id).textContent = text; };
+                
+                let hours = (data.info.hours || '').replace(/\n/g, '<br>');
+                updateHTML('info-hours', hours);
+                updateHTML('footer-hours', hours);
+                
+                // Asegurarse de remover el '1 ' inicial si proviene de los datos de Menutech
+                let phone = (data.info.phone || '').replace(/^1\s*/, '');
+                updateText('info-phone', phone);
+                updateText('footer-phone', phone);
+                
+                updateText('info-address', data.info.address);
+                updateText('footer-address', data.info.address);
+            }
+
+            if (data.socials) {
+                const container = document.getElementById('social-icons');
+                if (container) {
+                    container.innerHTML = data.socials
+                        .filter(s => s.platform !== 'tiktok' && SOCIAL_ICONS[s.platform])
+                        .map(s => `
+                            <a href="${s.url}" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="${s.platform}">
+                                ${SOCIAL_ICONS[s.platform]}
+                            </a>
+                        `).join('');
+                }
+            }
+
+            if (data.gallery) {
+                const container = document.getElementById('gallery-container');
+                if (container) {
+                    container.innerHTML = data.gallery.map(img => `
+                        <div class="gallery-item">
+                            <img src="${optimizeCloudinaryUrl(img, { width: 400, height: 400, crop: 'fill' })}" alt="Menu item" loading="lazy">
+                        </div>
+                    `).join('');
+                }
+            }
+
+            if (data.lang) applyLanguage(data.lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.MENU_TECH_STATE) updateUI(window.MENU_TECH_STATE);
+            
+            const toggler = document.getElementById('navbar-toggler');
+            const menu = document.getElementById('nav-menu');
+            if (toggler && menu) {
+                toggler.addEventListener('click', () => {
+                    menu.classList.toggle('active');
+                });
+                document.querySelectorAll('.nav-link').forEach(l => {
+                    l.addEventListener('click', () => menu.classList.remove('active'));
+                });
+            }
+        });
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'UPDATE_CONTENT') updateUI(event.data.data);
+        });
+    </script>
+</body>
+</html>
