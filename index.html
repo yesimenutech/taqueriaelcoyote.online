@@ -30,7 +30,7 @@
         "addressCountry": "US"
       },
       "servesCuisine": "Mexican",
-      "priceRange": "$$"
+      "priceRange": "\$\$"
     }
     </script>
 
@@ -241,7 +241,7 @@
         }
 
         /* Overrides visuales para componentes de Menutech */
-        menutech-orders, menutech-reservations {
+        menutech-orders, menutech-reservations, #hero-orders-link {
             display: inline-block;
             border: var(--border-thick);
             box-shadow: var(--shadow-solid);
@@ -249,7 +249,7 @@
             background: var(--negro);
         }
         
-        menutech-orders:hover, menutech-reservations:hover {
+        menutech-orders:hover, menutech-reservations:hover, #hero-orders-link:hover {
             transform: translate(-2px, -2px);
             box-shadow: var(--shadow-solid-hover);
         }
@@ -399,8 +399,8 @@
             border-bottom: var(--border-thick);
         }
 
-        .info-card:nth-child(2)::before { background: var(--rojo); }
-        .info-card:nth-child(3)::before { background: var(--rosado); }
+        .info-card:nth-child(2):before { background: var(--rojo); }
+        .info-card:nth-child(3):before { background: var(--rosado); }
 
         .info-card h4 {
             font-family: var(--font-title);
@@ -585,8 +585,10 @@
                 <!-- 2. Librería Menutech -->
                 <script src="https://menutech.xyz/menutechUI.min.js"></script>
 
-                <!-- 3. Botones Menutech Customizados -->
-                <menutech-orders id="hero-orders" cuid="000000" ruid="000000" background="#2D7A9D" color="#F4F0EA" data-glf-cuid="000000" data-glf-ruid="000000"></menutech-orders>
+                <!-- 3. Botones Menutech Customizados (Reemplazado por enlace directo) -->
+                <a href="https://taqueriaelcoyote.onlineordering.io/en/order" id="hero-orders-link" target="_blank" style="background: #2D7A9D; color: #F4F0EA; text-decoration: none; padding: 12px 24px; font-weight: bold; font-family: var(--font-body); text-transform: uppercase;">
+                    Order Online
+                </a>
 
                 <div id="hero-reservations-wrapper" style="display: none;">
                     <menutech-reservations id="hero-reservations" cuid="000000" ruid="000000" background="#C23B22" color="#F4F0EA" data-glf-cuid="000000" data-glf-ruid="000000" data-glf-reservation="true"></menutech-reservations>
@@ -702,7 +704,7 @@
             let pathSegments = parts[1].split('/');
             if (pathSegments.length > 1) {
                 const firstSegment = pathSegments[0];
-                const isVersion = /^v\d+$/.test(firstSegment);
+                const isVersion = /^v\d+\$/.test(firstSegment);
                 const isTransformation = !isVersion && (firstSegment.includes('_') || firstSegment.includes(','));
                 if (isTransformation) pathSegments.shift();
             }
